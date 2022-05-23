@@ -24,8 +24,8 @@ Queries to the API can be made with any type of request. If a path variable is p
 Responses will be returned in the following form:
 ```json
 {
-    "message": "true", // true/false if the query is valid, otherwise "Invalid query"
-    "query": "2" // the query that was provided
+    "isEven": "true",
+    "query": "2"
 }
 ```
 
