@@ -1,0 +1,31 @@
+{
+  "name": "serverless-is-even",
+  "version": "1.0.0",
+  "description": "Understand if numbers are even, at scale",
+  "main": "isEven/isEven.js",
+  "dependencies": {
+    "jest": "^28.1.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/blackburn32/serverlessIsEven.git"
+  },
+  "keywords": [
+    "isEven",
+    "even",
+    "serverless"
+  ],
+  "author": "alexblackburn32@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/blackburn32/serverlessIsEven/issues"
+  },
+  "homepage": "https://github.com/blackburn32/serverlessIsEven#readme",
+  "jest": {
+    "verbose": true
+  }
+}
