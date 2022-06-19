@@ -35,9 +35,9 @@ resource "aws_s3_bucket" "lambda_bucket" {
 data "archive_file" "lambda_is_even" {
   type = "zip"
 
-  source_file  = "${path.module}/isEven/isEven.js"
+  source_file      = "${path.module}/isEven/isEven.js"
   output_file_mode = "0666"
-  output_path = "${path.module}/isEven.zip"
+  output_path      = "${path.module}/isEven.zip"
 }
 
 resource "aws_s3_object" "lambda_is_even" {
