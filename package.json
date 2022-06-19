@@ -4,9 +4,12 @@
   "description": "Understand if numbers are even, at scale",
   "main": "isEven/isEven.js",
   "dependencies": {
+    "aws-sdk": "^2.1157.0"
+  },
+  "devDependencies": {
+    "aws-sdk-mock": "^5.7.0",
     "jest": "^28.1.1"
   },
-  "devDependencies": {},
   "scripts": {
     "test": "jest"
   },
