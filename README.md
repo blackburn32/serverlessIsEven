@@ -45,7 +45,7 @@ curl baseURL \
 ```
 
 ## Advertisements ##
-A random advertisement will be pulled out of the `advertisements` AWS DynamoDB table that is created when you provision the infrastructure. You can add rows to this table through the AWS console, and they will be randomly selected and added to the response of successful requests.
+Advertisements will be pulled out of the `advertisements` AWS DynamoDB table that is created when you provision the infrastructure. You can add rows to this table through the AWS console, and they will be randomly selected to be added to the response of successful requests.
 
 The following row is an example you can follow to add your own advertisements to the table:
 ```json
