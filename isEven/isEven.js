@@ -1,15 +1,15 @@
 module.exports.handler = async (event) => {
   const query = getQueryFromEvent(event);
-  const queryAsNumber = Number(query);
+  if (isNumeric(query)) {
+    const queryAsNumber = BigInt(query);
 
-  if (isNaN(queryAsNumber)) {
+    const answer = isEven(queryAsNumber);
+
+    return successResponse(query, answer);
+  } else {
     logInvalidEvent(event);
     return errorResponse(query);
   }
-
-  const answer = isEven(queryAsNumber);
-
-  return successResponse(query, answer);
 };
 
 function getQueryFromEvent(event) {
@@ -22,6 +22,10 @@ function getQueryFromEvent(event) {
     logInvalidEvent(event);
   }
   return query;
+}
+
+function isNumeric(value) {
+  return /^-?\d+$/.test(value);
 }
 
 function logInvalidEvent(event) {
@@ -42,7 +46,7 @@ function errorResponse(query) {
 }
 
 function isEven(query) {
-  return query % 2 == 0;
+  return query % 2n == 0n;
 }
 
 function successResponse(query, isEven) {
