@@ -1,4 +1,9 @@
 module.exports.handler = async (event) => {
+  return handleEvent(event);
+};
+module.exports.isEven = isEven;
+
+function handleEvent(event) {
   const query = getQueryFromEvent(event);
   if (isNumeric(query)) {
     const queryAsNumber = BigInt(query);
@@ -10,7 +15,7 @@ module.exports.handler = async (event) => {
     logInvalidEvent(event);
     return errorResponse(query);
   }
-};
+}
 
 function getQueryFromEvent(event) {
   let query = event.rawPath.replace("/", "");
