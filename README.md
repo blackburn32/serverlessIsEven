@@ -1,7 +1,7 @@
 # Serverless isEven #
 A serverless implementation of isEven. Now you can know if your numbers are even, even at mass scale.
 
-This implementation uses an AWS lambda to quickly determine if your number is even.
+This implementation uses an AWS Lambda to quickly determine if your number is even. Advertisements are supported by way of an AWS DynamoDB table.
 
 ## Installation ##
 First, make sure you have installed terraform, the AWS CLI and have configured your AWS credentials.
@@ -42,6 +42,28 @@ curl baseURL \
   --header 'Content-Type: text/plain' \
   --data-raw '5'
 {"isEven":"false","query":"5"}
+```
+
+## Advertisements ##
+A random advertisement will be pulled out of the `advertisements` AWS DynamoDB table that is created when you provision the infrastructure. You can add rows to this table through the AWS console, and they will be randomly selected and added to the response of successful requests.
+
+The following row is an example you can follow to add your own advertisements to the table:
+```json
+{
+  "id": {
+    "N": "0"
+  },
+  "ad": {
+    "S": "You win! Way to go!"
+  }
+}
+```
+
+The ad will then be included on successful requests:
+
+```bash
+ curl baseURL/167
+{"isEven":"false","query":"167","ad":"You win! Way to go!"}
 ```
 
 ## Tests ##
